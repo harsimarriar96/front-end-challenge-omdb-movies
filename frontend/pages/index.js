@@ -24,10 +24,10 @@ export default function Home() {
             OMDB Movies
           </h1>
 
-          <div className="w-8/12 mx-auto border-2 rounded-full mt-20 flex items-center pl-8 bg-white">
+          <div className="w-8/12 mx-auto border-2 rounded-full mt-20 flex items-center pl-8 bg-white shadow-lg">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-8 w-8 text-cyan-800"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
