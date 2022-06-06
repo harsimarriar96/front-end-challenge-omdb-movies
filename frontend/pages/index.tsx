@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import Head from 'next/head';
+import { SearchBar } from '../components/SearchBar';
+import { MovieCard } from '../components/MovieCard';
 // Search OMDB API and return a list of movies that show at least the title, release year and a button to nominate them.
 // Search results should only be of movies
 //  Updates to the search terms should update the result list.
@@ -8,6 +11,8 @@ import Head from 'next/head';
 // Display a banner when the user has nominated 5 movies.
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <div>
       <Head>
@@ -24,28 +29,26 @@ export default function Home() {
             OMDB Movies
           </h1>
 
-          <div className="w-8/12 mx-auto border-2 rounded-full mt-20 flex items-center pl-8 bg-white shadow-lg">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 text-cyan-800"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-            <input
-              type="text"
-              placeholder="Enter your favourite movie name..."
-              className="rounded-full w-full px-6 py-8 focus:outline-none font-semibold text-2xl tracking-wider text-cyan-800"
-            />
-          </div>
+          <SearchBar
+            onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchQuery}
+          />
         </div>
+        {searchQuery && (
+          <>
+            <div className="mx-auto w-8/12 mt-10">
+              <h2 className="text-2xl">Results for "{searchQuery}"</h2>
+            </div>
+            <div className="mx-auto w-8/12 mt-10 flex gap-10 overflow-auto">
+              <MovieCard name="Hell Yeah" />
+              <MovieCard name="Hell Yeah" />
+              <MovieCard name="Hell Yeah" />
+              <MovieCard name="Hell Yeah" />
+              <MovieCard name="Hell Yeah" />
+              <MovieCard name="Hell Yeah" />
+            </div>
+          </>
+        )}
       </main>
 
       <footer></footer>
