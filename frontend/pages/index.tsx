@@ -161,14 +161,16 @@ export default function Home() {
               )}
 
               {/* No movies found */}
-              {movies.length < 1 && !isLoading && (
-                <h4 className="text-2xl text-center text-gray-700 mt-10">
-                  No movies found, try to change your search query.
-                </h4>
-              )}
+              {movies.length < 1 &&
+                !isLoading &&
+                !showAllNominatedMoviesOnly && (
+                  <h4 className="text-2xl text-center text-gray-700 mt-10">
+                    No movies found, try to change your search query.
+                  </h4>
+                )}
 
               {/* Banners */}
-              {hasErrors && !isLoading && (
+              {hasErrors && !isLoading && !showAllNominatedMoviesOnly && (
                 <div className="mt-8">
                   <Banner type={BannerTypes.DANGER} show={hasErrors}>
                     Oops! Looks like something went wrong, please try again.
