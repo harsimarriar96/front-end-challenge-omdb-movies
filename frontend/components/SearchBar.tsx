@@ -1,6 +1,12 @@
-export const SearchBar = ({ onChange, value }) => {
+type Props = {
+  onChange: any;
+  value: string;
+};
+
+export const SearchBar = ({ onChange, value }: Props) => {
   return (
-    <div className="w-8/12 mx-auto border-2 rounded-full mt-20 flex items-center pl-8 bg-white shadow-lg">
+    <div className="w-10/12 md:w-8/12 mx-auto border-2 rounded-full mt-20 flex items-center pl-8 bg-white shadow-lg">
+      {/* Magnifier SVG icon */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-8 w-8 text-cyan-800"

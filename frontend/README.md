@@ -2,7 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, update your environment variables.
+
+NEXT_PUBLIC_OMDB_API_KEY=YOUR_KEY_HERE
+
+Run your development server
 
 ```bash
 npm run dev
